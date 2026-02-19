@@ -1,21 +1,16 @@
+version: '3.8'
 services:
   papra:
     image: ghcr.io/papra-hq/papra:latest-root
-    container_name: papra
+    container_name: papra-app
     restart: unless-stopped
     ports:
-      - 1221:1221
+      - "1221:1221"
     environment:
-      - AUTH_SECRET=NsXHgytVOjjHT1Q8460t2aoDT7y00aIsMT6JT8EnYSwUipkW
-      - APP_BASE_URL=https://bizlogix.cloud
-      - INGESTION_FOLDER_IS_ENABLED=true
-      - INTAKE_EMAILS_IS_ENABLED=true
-      - INTAKE_EMAILS_DRIVER=owlrelay
-      - INTAKE_EMAILS_WEBHOOK_SECRET=LsmTEh9QkiRJCpTm5pXZ7TKHdd6bXHlhRH7sztIKv3Wwmqd9
-      - OWLRELAY_WEBHOOK_URL=https://localhost:1221/api/intake-emails/ingest
+      - APP_BASE_URL=https://papra.bizlogix.cloud
     volumes:
-      - ./app-data:/app/app-data
-      - ./ingestion:/app/ingestion
       - papra_data:/app/app-data
-      
-    user: 1000:1000
+
+volumes:
+  papra_data:
+    external: false
