@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   papra:
     image: ghcr.io/papra-hq/papra:latest-root
@@ -7,13 +6,14 @@ services:
     ports:
       - "1221:1221"
     environment:
-      - APP_BASE_URL=https://papra.bizlogix.cloud
+      - APP_BASE_URL=https://your-domain.com
       - INGESTION_FOLDER_IS_ENABLED=true
     volumes:
       - papra_data:/app/app-data
+      - ingestion_data:/app/ingestion
 
 volumes:
   papra_data:
     external: false
-   ingestion_data:
+  ingestion_data:
     external: false
