@@ -4,7 +4,7 @@ services:
     container_name: papra-app
     restart: unless-stopped
     ports:
-      - "1221:1221"
+      - 1221:1221
     environment:
       - APP_BASE_URL=https://papra.bizlogix.cloud
       - INGESTION_FOLDER_IS_ENABLED=true
