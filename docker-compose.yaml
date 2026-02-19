@@ -8,9 +8,12 @@ services:
       - "1221:1221"
     environment:
       - APP_BASE_URL=https://papra.bizlogix.cloud
+      - INGESTION_FOLDER_IS_ENABLED=true
     volumes:
       - papra_data:/app/app-data
 
 volumes:
   papra_data:
+    external: false
+   ingestion_data:
     external: false
